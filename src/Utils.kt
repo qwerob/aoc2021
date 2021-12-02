@@ -1,15 +1,16 @@
 import java.io.File
-import java.math.BigInteger
-import java.security.MessageDigest
 
-/**
- * Reads lines from the given input txt file.
- */
-fun readInput(name: String) = File("src", "$name.txt").readLines()
+fun readTestInputByDay(day: Int): List<String> {
+    val dayNumber = day.toString().padStart(2,'0')
+    val path = "src/day$dayNumber"
+    val fileName = "Day${dayNumber}_test.txt"
+  return File(path, fileName).readLines()
+}
 
-fun readInputAsInt(name: String) = readInput(name).map { it.toInt() }
+fun readInputByDay(day: Int): List<String> {
+    val dayNumber = day.toString().padStart(2,'0')
+    val path = "src/day$dayNumber"
+    val fileName = "Day${dayNumber}.txt"
+  return File(path, fileName).readLines()
+}
 
-/**
- * Converts string to md5 hash.
- */
-fun String.md5(): String = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray())).toString(16)

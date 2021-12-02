@@ -1,4 +1,8 @@
+package day01
+
 import org.junit.jupiter.api.Assertions.assertEquals
+import readInputByDay
+import readTestInputByDay
 
 fun main() {
 
@@ -28,13 +32,13 @@ fun main() {
     }
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readInputAsInt("Day01_test")
+    val testInput = readTestInputByDay(1).map { it.toInt() }
     assertEquals(7, part1(testInput))
     assertEquals(5, part2(testInput))
     assertEquals(7, part11(testInput))
     assertEquals(5, part22(testInput))
 
-    val input = readInputAsInt("Day01")
+    val input = readInputByDay(1).map { it.toInt() }
     println(part1(input))
     println(part2(input))
 }
